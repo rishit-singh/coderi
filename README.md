@@ -1,40 +1,47 @@
 # Coderi
 
-AI-powered logistics optimization for small ecommerce sellers.
+**AI-powered logistics optimization for small ecommerce sellers.**
 
-## Features
+Coderi automatically selects the best carrier and shipping route on every order, saving small sellers up to 40% on shipping costs.
 
-- 🤖 AI-driven carrier selection & rate comparison
-- 📦 Smart shipping rules engine
-- 📊 Carrier performance analytics
-- 🔮 Predictive delivery time estimates
-- 🛍️ Shopify integration (coming soon)
+## Stack
 
-## Tech Stack
-
-- **Frontend**: Next.js 15 (App Router), TypeScript, Tailwind CSS
-- **Backend**: Supabase (Postgres + Auth + Realtime)
+- **Framework**: Next.js 15 (App Router)
+- **Database + Auth**: Supabase
+- **Styling**: Tailwind CSS
+- **Language**: TypeScript
 - **Deployment**: Render
-- **AI/ML**: Python/SageMaker (carrier selection pipeline)
 
 ## Getting Started
 
 ```bash
-# Install dependencies
 npm install
-
-# Copy env file and fill in values
-cp .env.local.example .env.local
-
-# Run dev server
+cp .env.example .env.local
+# Fill in your Supabase credentials in .env.local
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) to view the app.
+Open [http://localhost:3000](http://localhost:3000).
+
+## Project Structure
+
+```
+src/
+  app/              # Next.js App Router pages
+    (auth)/         # Auth routes (login, signup)
+    (dashboard)/    # Protected dashboard routes
+    api/            # API route handlers
+  components/
+    ui/             # Base UI components
+    features/       # Feature-specific components
+  lib/
+    supabase/       # Supabase client utilities
+    carriers/       # Carrier API integrations
+    ai/             # AI/ML logic
+  types/            # TypeScript types
+  hooks/            # Custom React hooks
+```
 
 ## Deployment
 
-This app is deployed on [Render](https://render.com).
-
-Build command: `npm install && npm run build`
-Start command: `npm start`
+Deployed on [Render](https://render.com). Build command: `npm install && npm run build`. Start command: `npm start`.

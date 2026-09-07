@@ -1,19 +1,21 @@
-import type { Metadata } from "next";
-import "./globals.css";
+import type { Metadata } from 'next';
+import './globals.css';
 
 export const metadata: Metadata = {
-  title: "Coderi — AI Logistics for Ecommerce",
-  description: "AI-powered carrier selection and shipping optimization for small ecommerce sellers.",
+  title: 'Coderi — AI Shipping Intelligence',
+  description: 'AI-powered logistics optimization for small ecommerce sellers. Save up to 40% on shipping costs with smart carrier selection.',
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body className="min-h-screen bg-gray-50 font-sans antialiased">
+        {children}
+      </body>
     </html>
   );
 }

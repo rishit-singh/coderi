@@ -1,21 +1,18 @@
-"use client";
+import Link from 'next/link';
 
-import Link from "next/link";
-import { ArrowRight, TrendingDown, Zap, BarChart3 } from "lucide-react";
-
-export default function HomePage() {
+export default function LandingPage() {
   return (
-    <main className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900 text-white">
+    <main className="min-h-screen bg-gradient-to-br from-brand-900 via-brand-700 to-brand-500">
       {/* Nav */}
-      <nav className="flex items-center justify-between px-8 py-5 border-b border-white/10">
-        <span className="text-xl font-bold tracking-tight">Coderi</span>
-        <div className="flex gap-4 items-center">
-          <Link href="/login" className="text-sm text-white/70 hover:text-white transition">
-            Sign in
+      <nav className="flex items-center justify-between px-8 py-6 max-w-7xl mx-auto">
+        <span className="text-white text-2xl font-bold tracking-tight">Coderi</span>
+        <div className="flex gap-4">
+          <Link href="/login" className="text-white/80 hover:text-white text-sm transition">
+            Log in
           </Link>
           <Link
             href="/signup"
-            className="bg-blue-600 hover:bg-blue-500 transition text-sm font-medium px-4 py-2 rounded-lg"
+            className="bg-white text-brand-700 px-4 py-2 rounded-lg text-sm font-semibold hover:bg-brand-50 transition"
           >
             Get started free
           </Link>
@@ -23,59 +20,60 @@ export default function HomePage() {
       </nav>
 
       {/* Hero */}
-      <section className="max-w-4xl mx-auto px-8 pt-24 pb-16 text-center">
-        <div className="inline-flex items-center gap-2 bg-blue-600/20 border border-blue-500/30 rounded-full px-4 py-1.5 text-sm text-blue-300 mb-6">
-          <Zap size={14} />
-          AI-powered shipping intelligence
+      <section className="flex flex-col items-center justify-center text-center px-4 pt-24 pb-32">
+        <div className="inline-flex items-center gap-2 bg-white/10 text-white/90 text-xs font-medium px-3 py-1 rounded-full mb-6 border border-white/20">
+          🚀 AI-powered shipping intelligence
         </div>
-        <h1 className="text-5xl md:text-6xl font-bold leading-tight mb-6">
-          Stop overpaying on shipping.<br />
-          <span className="text-blue-400">Start winning on margins.</span>
+        <h1 className="text-5xl md:text-6xl font-bold text-white leading-tight max-w-3xl">
+          Ship smarter.
+          <br />
+          <span className="text-brand-100">Save up to 40%</span> on every order.
         </h1>
-        <p className="text-lg text-white/60 max-w-2xl mx-auto mb-10">
-          Coderi uses AI to automatically select the best carrier for every shipment —
-          cutting costs, saving time, and giving small ecommerce sellers the logistics
-          intelligence that only enterprises could afford.
+        <p className="mt-6 text-lg text-white/70 max-w-xl">
+          Coderi automatically picks the fastest, cheapest carrier for every shipment — no spreadsheets, no guesswork.
         </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+        <div className="mt-10 flex gap-4">
           <Link
             href="/signup"
-            className="flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-500 transition font-semibold px-8 py-3.5 rounded-xl text-base"
+            className="bg-white text-brand-700 px-6 py-3 rounded-xl font-semibold text-sm hover:bg-brand-50 transition shadow-lg"
           >
-            Start for free <ArrowRight size={18} />
+            Start for free
           </Link>
           <Link
             href="/dashboard"
-            className="flex items-center justify-center gap-2 bg-white/10 hover:bg-white/15 transition font-semibold px-8 py-3.5 rounded-xl text-base"
+            className="border border-white/30 text-white px-6 py-3 rounded-xl font-semibold text-sm hover:bg-white/10 transition"
           >
-            View demo dashboard
+            View dashboard
           </Link>
         </div>
       </section>
 
       {/* Features */}
-      <section className="max-w-5xl mx-auto px-8 pb-24 grid md:grid-cols-3 gap-6">
+      <section className="max-w-6xl mx-auto px-8 pb-24 grid grid-cols-1 md:grid-cols-3 gap-6">
         {[
           {
-            icon: <TrendingDown size={24} className="text-blue-400" />,
-            title: "AI Carrier Selection",
-            desc: "Real-time rate comparison across USPS, UPS, FedEx, and DHL. AI picks the winner automatically.",
+            icon: '⚡',
+            title: 'Instant rate comparison',
+            desc: 'Compare UPS, FedEx, USPS, DHL and more in real time at checkout.',
           },
           {
-            icon: <Zap size={24} className="text-blue-400" />,
-            title: "Smart Shipping Rules",
-            desc: "Auto-route shipments by zone, weight, and delivery speed. Set it once, let it run.",
+            icon: '🧠',
+            title: 'AI carrier selection',
+            desc: 'Our model learns your shipment patterns and picks the best option automatically.',
           },
           {
-            icon: <BarChart3 size={24} className="text-blue-400" />,
-            title: "Performance Analytics",
-            desc: "See which carriers are underperforming on your routes. Data-driven decisions, not gut feelings.",
+            icon: '📊',
+            title: 'Carrier analytics',
+            desc: 'See which carriers are underperforming on your lanes and fix it fast.',
           },
         ].map((f) => (
-          <div key={f.title} className="bg-white/5 border border-white/10 rounded-2xl p-6">
-            <div className="mb-3">{f.icon}</div>
-            <h3 className="font-semibold text-lg mb-2">{f.title}</h3>
-            <p className="text-white/60 text-sm leading-relaxed">{f.desc}</p>
+          <div
+            key={f.title}
+            className="bg-white/10 border border-white/20 rounded-2xl p-6 text-white backdrop-blur"
+          >
+            <div className="text-3xl mb-3">{f.icon}</div>
+            <h3 className="font-semibold text-lg mb-1">{f.title}</h3>
+            <p className="text-white/70 text-sm">{f.desc}</p>
           </div>
         ))}
       </section>
